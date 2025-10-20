@@ -3,7 +3,13 @@
 
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="description"
+      content="Интерактивная игра про думера Игоря, который живёт в 2007 году, слушает ТАТУ и страдает от экзистенциальной тоски" />
+    <meta name="theme-color" content="#1e1e2f" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Игорь и тоска по 2007</title>
     <style>
       body {
@@ -252,6 +258,7 @@
         gap: 10px;
         margin-bottom: 20px;
         justify-content: center;
+        flex-wrap: wrap;
       }
 
       .tab-button {
@@ -273,6 +280,130 @@
 
       .tab-content.active {
         display: block;
+      }
+
+      /* АДАПТИВ ДЛЯ МОБИЛЬНЫХ */
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem 0.5rem;
+          font-size: 14px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+          margin: 0.5rem 0 1rem 0;
+        }
+
+        .time-display {
+          font-size: 12px;
+          padding: 8px 12px;
+          top: 5px;
+          right: 5px;
+        }
+
+        .igor-container {
+          padding: 1rem;
+          max-width: 100%;
+          border-radius: 8px;
+        }
+
+        .tabs {
+          gap: 5px;
+          margin-bottom: 15px;
+        }
+
+        .tab-button {
+          padding: 8px 12px;
+          font-size: 13px;
+          flex: 1;
+          min-width: 80px;
+        }
+
+        button {
+          margin: 5px;
+          padding: 12px 14px;
+          font-size: 14px;
+          min-width: 45%;
+          touch-action: manipulation;
+        }
+
+        .output {
+          font-size: 12px;
+          padding: 0.75rem;
+          margin-top: 15px;
+        }
+
+        .title {
+          font-size: 1rem;
+        }
+
+        .achievement-popup {
+          right: 10px;
+          top: 60px;
+          max-width: 85%;
+          font-size: 13px;
+        }
+
+        .event-popup {
+          max-width: 90%;
+          padding: 15px;
+          font-size: 14px;
+        }
+
+        .event-buttons {
+          flex-direction: column;
+        }
+
+        .event-buttons button {
+          width: 100%;
+          margin: 5px 0;
+        }
+
+        .achievements {
+          padding: 10px;
+        }
+
+        .achievement-item {
+          font-size: 11px;
+          padding: 6px 10px;
+          display: block;
+          margin: 5px 0;
+        }
+
+        .astral {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 0.5rem 0.25rem;
+        }
+
+        h1 {
+          font-size: 1.3rem;
+        }
+
+        .tab-button {
+          font-size: 12px;
+          padding: 8px 8px;
+          min-width: 70px;
+        }
+
+        button {
+          font-size: 13px;
+          padding: 10px 12px;
+          margin: 4px;
+        }
+
+        .output {
+          font-size: 11px;
+        }
+
+        .time-display {
+          font-size: 11px;
+          padding: 6px 10px;
+        }
       }
 
     </style>
@@ -297,6 +428,7 @@
           <button onclick="igor.drinkAlcohol('пиво')">🍺 Пиво</button>
           <button onclick="igor.drinkAlcohol('вино')">🍷 Вино</button>
           <button onclick="igor.drinkAlcohol('водка')">🥃 Водка</button>
+          <button onclick="igor.drinkAlcohol('коньяк')">🍾 Коньяк</button>
           <button onclick="igor.drinkAlcohol('самогон')">🔥 Самогон</button>
           <button onclick="igor.drinkAlcohol('ягуар')">🐆 Ягуар</button>
           <button onclick="igor.drinkAlcohol('балтика9')">9️⃣ Балтика 9</button>
@@ -553,6 +685,7 @@
             "пиво": 1,
             "вино": 2,
             "водка": 3,
+            "коньяк": 3,
             "самогон": 4,
             "ягуар": 5,
             "балтика9": 2
@@ -577,7 +710,8 @@
           const reactions = {
             "ягуар": "🐆 Это легендарный напиток! Игорь чувствует прилив сил 2007 года!",
             "балтика9": "9️⃣ Крепкая! Настоящий вкус дворов и подъездов...",
-            "самогон": "🔥 Обжигает! Игорь видит предков в астрале!"
+            "самогон": "🔥 Обжигает! Игорь видит предков в астрале!",
+            "коньяк": "🍾 Коньяк пятизвёздочный! Игорь чувствует себя солидным человеком."
           };
 
           this.checkAstral();
