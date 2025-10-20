@@ -2,7 +2,7 @@
 
 **Интерактивная игра-симулятор жизни думера в 2007 году**
 
-[![Play Game](https://img.shields.io/badge/Play-Game-pink?style=for-the-badge)](https://ваш-username.github.io/igor)
+[![Play Game](https://img.shields.io/badge/Play-Game-pink?style=for-the-badge)](https://summertime-fms.github.io/igor)
 
 ## 🎮 О игре
 
